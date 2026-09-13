@@ -1,59 +1,124 @@
-# Basic Analysis of Simulated Water-Quality Data from Former Tin-Mining Pits
+# Simulated Water-Quality Analysis of Former Tin-Mining Pits
 
-## Author
-Aliefia Noor
+A beginner Python project that analyzes a simulated water-quality dataset representing former tin-mining pits (*kolong*) in Bangka Belitung, Indonesia.
 
-## Background
-Former tin-mining pits, locally known as *kolong*, are important environmental features in Bangka Belitung, Indonesia. This beginner project was created to practice Python-based environmental data analysis using a simulated dataset.
+> **Important:** This repository uses simulated data for educational purposes. It does not contain field measurements and must not be used to draw conclusions about real locations or environmental conditions.
 
-## Objective
-This project demonstrates a basic computational workflow for:
-1. Importing a CSV dataset.
-2. Checking data structure and missing values.
-3. Producing descriptive statistics.
-4. Identifying the lowest pH and highest iron concentration.
-5. Exploring correlations among selected water-quality variables.
-6. Creating scientific visualizations.
-7. Saving analysis output as a new CSV file.
+## Project goal
+
+This project was created to practice a basic environmental-data-analysis workflow using Python:
+
+- Read a CSV dataset with Pandas.
+- Inspect data structure and missing values.
+- Calculate descriptive statistics.
+- Identify the lowest pH and highest iron concentration.
+- Explore correlations among water-quality variables.
+- Create and save scatter-plot visualizations.
+- Export summary statistics as a CSV file.
+
+## Dataset
+
+The simulated dataset contains records for 12 former tin-mining pits. Variables include:
+
+| Variable | Unit | Description |
+|---|---:|---|
+| `pit_name` | — | Identifier for each simulated pit |
+| `pit_age_years` | years | Simulated age of the pit |
+| `pH` | — | Acidity/alkalinity indicator |
+| `dissolved_oxygen_mg_L` | mg/L | Dissolved oxygen concentration |
+| `turbidity_NTU` | NTU | Water-cloudiness indicator |
+| `TDS_mg_L` | mg/L | Total dissolved solids |
+| `iron_mg_L` | mg/L | Iron concentration |
+| `manganese_mg_L` | mg/L | Manganese concentration |
+
+The data file is available in:
+
+```text
+water_data.csv
+```
+
+## Repository structure
+
+```text
+.
+├── analysis.py
+├── README.md
+├── learning_log.md
+├── water_data.csv
+├── water_quality_summary.csv
+├── ph_vs_iron.png
+└── pit_age_vs_ph.png
+```
+
+## How to run
+
+### 1. Create and activate a virtual environment
+
+```powershell
+python -m venv venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+.\venv\Scripts\Activate.ps1
+```
+
+### 2. Install dependencies
+
+```powershell
+pip install pandas matplotlib
+```
+
+### 3. Run the analysis
+
+```powershell
+python analysis.py
+```
+
+The script reads `water_data.csv`, prints basic analysis results in the terminal, saves descriptive statistics to `water_quality_summary.csv`, and generates two plots.
+
+## Outputs
+
+### pH versus iron concentration
+
+`ph_vs_iron.png` visualizes the relationship between pH and iron concentration in the simulated dataset.
+
+![pH versus iron concentration](ph_vs_iron.png)
+
+### Pit age versus pH
+
+`pit_age_vs_ph.png` visualizes the relationship between pit age and pH in the simulated dataset.
+
+![Pit age versus pH](pit_age_vs_ph.png)
+
+## Main observations
+
+Based only on this simulated dataset:
+
+- `Kolong_01` has the lowest pH value: 3.82.
+- `Kolong_01` has the highest iron concentration: 5.80 mg/L.
+- The pH-versus-iron plot shows an inverse pattern in this simulation.
+- The pit-age-versus-pH plot shows pH increasing with pit age in this simulation.
+
+These observations are examples of data exploration, not evidence about actual former tin-mining pits.
 
 ## Tools
+
 - Python
 - Pandas
 - Matplotlib
 - Visual Studio Code
-- Python virtual environment (venv)
+- Git and GitHub
 
-## Dataset
-The simulated dataset contains 12 former tin-mining pits and includes:
-- Pit age in years
-- pH
-- Dissolved oxygen
-- Turbidity
-- Total dissolved solids
-- Iron concentration
-- Manganese concentration
+## Learning notes
 
-## Important note
-This dataset is simulated for learning purposes only. It does not represent actual field measurements from Bangka Belitung and must not be used to make environmental claims about specific locations.
+See [`learning_log.md`](learning_log.md) for a short record of the Python, data-analysis, and Git/GitHub skills practiced during this project.
 
-## Main results from the simulated dataset
-- Kolong_01 had the lowest pH value of 3.82.
-- Kolong_01 had the highest iron concentration of 5.80 mg/L.
-- The pH versus iron plot showed an inverse pattern in the simulated data.
-- The pit-age versus pH plot showed that pH increased with pit age in the simulated data.
+## Future improvements
 
-## Files
-- `analysis.py`: Python script for the data analysis.
-- `water_data.csv`: Simulated input dataset.
-- `water_quality_summary.csv`: Descriptive-statistics output.
-- `ph_vs_iron.png`: Scatter plot of pH versus iron concentration.
-- `pit_age_vs_ph.png`: Scatter plot of pit age versus pH.
+- Use verified field data with appropriate permissions and metadata.
+- Add sampling dates, coordinates, and site descriptions.
+- Conduct formal water-quality interpretation using relevant standards.
+- Add data validation and reproducible environment files.
+- Create maps and explore remote-sensing data for broader environmental analysis.
 
-## Learning outcome
-This project helped me begin learning independent Python-based environmental data analysis. I practiced reading CSV files, inspecting datasets, calculating descriptive statistics, identifying minimum and maximum values, calculating correlations, generating scatter plots, and saving results.
+## Author
 
-## Next steps
-- Learn Git and GitHub for version control.
-- Learn basic Linux command-line operations.
-- Add geographic coordinates and create a simple map of pit locations.
-- Learn introductory remote-sensing workflows for environmental monitoring.
+Aliefia Noor
