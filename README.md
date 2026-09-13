@@ -63,7 +63,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 ### 2. Install dependencies
 
 ```powershell
-pip install pandas matplotlib
+pip install -r requirements.txt
 ```
 
 ### 3. Run the analysis
