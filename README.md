@@ -44,10 +44,13 @@ water_data.csv
 ├── analysis.py
 ├── README.md
 ├── learning_log.md
+├── requirements.txt
+├── .gitignore
 ├── water_data.csv
 ├── water_quality_summary.csv
 ├── ph_vs_iron.png
-└── pit_age_vs_ph.png
+├── pit_age_vs_ph.png
+└── ph_category_count.png
 ```
 
 ## How to run
@@ -72,7 +75,7 @@ pip install -r requirements.txt
 python analysis.py
 ```
 
-The script reads `water_data.csv`, prints basic analysis results in the terminal, saves descriptive statistics to `water_quality_summary.csv`, and generates two plots.
+The script reads `water_data.csv`, prints basic analysis results in the terminal, saves descriptive statistics to `water_quality_summary.csv`, and generates three plots.
 
 ## Outputs
 
@@ -88,7 +91,15 @@ The script reads `water_data.csv`, prints basic analysis results in the terminal
 
 ![Pit age versus pH](pit_age_vs_ph.png)
 
+### pH-category distribution
+
+`ph_category_count.png` summarizes the number of simulated pits within three descriptive pH categories. These categories are used only for exploratory visualization and are not regulatory water-quality classifications.
+
+![Number of simulated pits by pH category](ph_category_count.png)
+
 ## Main observations
+
+- The pH-category chart summarizes the distribution of simulated pits across acidic, slightly acidic, and near-neutral/alkaline categories.
 
 Based only on this simulated dataset:
 

@@ -105,3 +105,45 @@ summary_statistics = df.describe()
 summary_statistics.to_csv("water_quality_summary.csv")
 
 print("Summary statistics saved as water_quality_summary.csv")
+
+print("\n=== pH Category Summary ===")
+
+def classify_ph(value):
+    if value < 5.5:
+        return "Acidic"
+    elif value < 7.0:
+        return "Slightly acidic"
+    else:
+        return "Near neutral or alkaline"
+
+df["pH_category"] = df["pH"].apply(classify_ph)
+
+ph_category_counts = df["pH_category"].value_counts()
+
+category_order = [
+    "Acidic",
+    "Slightly acidic",
+    "Near neutral or alkaline"
+]
+
+ph_category_counts = ph_category_counts.reindex(category_order, fill_value=0)
+
+print(ph_category_counts)
+
+plt.figure(figsize=(8, 5))
+
+plt.bar(
+    ph_category_counts.index,
+    ph_category_counts.values,
+    color=["#d73027", "#fc8d59", "#91cf60"]
+)
+
+plt.title("Number of Simulated Pits by pH Category")
+plt.xlabel("pH category")
+plt.ylabel("Number of pits")
+plt.xticks(rotation=15, ha="right")
+plt.tight_layout()
+plt.savefig("ph_category_count.png", dpi=300)
+plt.close()
+
+print("pH category chart saved as ph_category_count.png")
